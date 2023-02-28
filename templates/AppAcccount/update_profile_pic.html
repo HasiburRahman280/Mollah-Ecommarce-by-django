@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+   <div class="container my-5">
+    <div class="row">
+        <div class="form-area mx-auto">
+            <h1>Update Your Profile picture</h1>
+            <br>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{update_profile_pic_form.as_p}}
+                <button class="btn btn-primary btn-sm" type="submit">Update picture</button>
+            </form>
+        </div>
+    </div>
+   </div>
+
+{% endblock content %}

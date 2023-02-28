@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+
+    <h2 class="text-center">User Profile</h2>
+   <br>
+   <a href="{% url 'user_profile_edit' %}" class="btn btn-primary">Update Your Profile</a>
+   {% if request.user.pro_pics.image %}
+   <img src="{{user.pro_pics.image.url}}" alt="" width="100px" height="100px"> </td>
+   <a href="{% url 'update_Profile_Pic' %}" class="btn btn-primary">Update Your Picture</a>
+   {% else %}
+   <img src="/media/a.png" class="rounded-circle" width="100px" alt=""><br>
+   <a href="{% url 'profile_picture' %}" class="btn btn-primary">Add Your Picture</a>
+   {% endif %}
+
+   
+
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Gender</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+
+          <td>{{user_pro.full_name}}</td>
+          <td>{{user_pro.email}}</td>
+          <td>{{user_pro.phone}}</td>
+          <td>{{user_pro.address}}</td>
+          <td>{{user_pro.gender}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+{% endblock %}
